@@ -1,12 +1,8 @@
 package com.maxn.springperfectnumber.controllers;
 
 import com.maxn.springperfectnumber.utils.PerfectNumberUtil;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -18,7 +14,7 @@ public class PerfectNumberController {
     }
 
     @RequestMapping(path = "/perfect-number-range", method = RequestMethod.GET)
-    public List<Integer> isPerfect(@PathParam("start") int start, @PathParam("end") int end) {
+    public List<Integer> isPerfect(@RequestParam("start") int start, @RequestParam("end") int end) {
         return PerfectNumberUtil.getRange(start, end);
     }
 
